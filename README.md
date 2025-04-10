@@ -3,6 +3,18 @@
   <a title="Learn more about Numbered Bookmarks" href="http://github.com/alefragnani/vscode-numbered-bookmarks"><img src="https://raw.githubusercontent.com/alefragnani/vscode-numbered-bookmarks/master/images/vscode-numbered-bookmarks-logo-readme.png" alt="Numbered Bookmarks Logo" width="70%" /></a>
 </p>
 
+# vscode neovim
+
+```lua
+local vsapi = require('vscode')
+for k, v in pairs({ a=0, b=1, c=2, d=3, e=4, f=5, g=6, h=7, i=8, j=9, }) do
+    vim.keymap.set('n', "'" .. k, function () vsapi.action('numberedBookmarks.jumpToBookmark' .. v) end, {noremap=true})
+    vim.keymap.set('n', "m" .. k, function () vsapi.action('numberedBookmarks.toggleBookmark' .. v) end, {noremap=true})
+end
+vim.keymap.set('n', 'gm', function () vsapi.action('numberedBookmarks.list') end, {noremap=true})
+vim.keymap.set('n', 'gM', function () vsapi.action('numberedBookmarks.listFromAllFiles') end, {noremap=true})
+```
+
 # What's new in Numbered Bookmarks 8.5
 
 * Published to **Open VSX**
