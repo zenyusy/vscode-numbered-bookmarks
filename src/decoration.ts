@@ -37,7 +37,7 @@ export function createBookmarkDecorations(): TextEditorDecorationTypePair[] {
         const iconNumberColor = workspace.getConfiguration("numberedBookmarks").get("gutterIconNumberColor", DEFAULT_GUTTER_ICON_NUMBER_COLOR);
         const iconPath = Uri.parse(
             `data:image/svg+xml,${encodeURIComponent(
-                `<svg xmlns="http://www.w3.org/2000/svg"> <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"> <g fill="${iconFillColor}" stroke="null"><path d="M5.573914546804859,0.035123038858889274 C4.278736002284275,0.035123038858889274 3.228793828301391,0.9189688905396587 3.228793828301391,2.005394862080541 L3.228793828301391,15.844184705765102 L7.923495246522241,11.89191599548129 L12.618212313799981,15.844184705765102 L12.618212313799981,2.005394862080541 C12.618212313799981,0.9172430665361684 11.56845792849979,0.035123038858889274 10.273075946239627,0.035123038858889274 L5.573898897747966,0.035123038858889274 L5.573914546804859,0.035123038858889274 z" stroke="null"></path></g> </g> <text text-anchor="middle" alignment-baseline="middle" x="7.6" y="7.5" fill="${iconNumberColor}" font-weight="bold" font-size="9" font-family="Menlo, Monaco, monospace">${number}</text> </svg>`,
+                `<svg xmlns="http://www.w3.org/2000/svg"> <g fill="none" stroke="${iconFillColor}" stroke-width="1"> <line x1="2" y1="15" x2="2" y2="2"></line> <line x1="12" y1="15" x2="12" y2="2"></line> <line x1="2" y1="15" x2="12" y2="15"></line> </g> <text text-anchor="middle" alignment-baseline="middle" x="7" y="10" fill="${iconNumberColor}" font-weight="bold" font-size="13" font-family="monospace">${String.fromCharCode(97+number)}</text> </svg>`,
             )}`,
         );
         
